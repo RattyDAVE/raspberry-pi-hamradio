@@ -75,7 +75,22 @@ Now you can start Direwolf.
 direwolf -t 0 -c /etc/direwolf.conf
 ```
 
+The output should be like this
 
-After start you see infos from Dirwolf bevor it begins to decode APRS messages. You will see that Hamlib ist enabled, the active audio device, info about your active channels and config and the info that Direwolf is ready to accept AGW (Port 8000) and KISS TCP (Port 8001). We need AGW for connect Xastir.
+```
+pi@raspberrypi:~ $ direwolf -t 0 -c /etc/direwolf.conf 
+Dire Wolf version 1.4
+Includes optional support for:  gpsd
+
+Reading config file /etc/direwolf.conf
+Audio device for both receive and transmit: plughw:1,0  (channel 0)
+Channel 0: 1200 baud, AFSK 1200 & 2200 Hz, E+, 44100 sample rate / 3.
+Note: PTT not configured for channel 0. (Ignore this if using VOX.)
+Ready to accept AGW client application 0 on port 8000 ...
+Ready to accept KISS client application on port 8001 ...
+Use -p command line option to enable KISS pseudo terminal.
+```
+
+After start you see infos from Dirwolf it begins to decode APRS messages.
 
 All stations use a single frequency. On the VHF 2m band - the most commonly used band for APRS - APRS uses 144.800MHz in Europe and 144.390MHz in the USA.
