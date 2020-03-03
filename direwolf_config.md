@@ -77,3 +77,5 @@ direwolf -t 0 -c /etc/direwolf.conf
 
 
 After start you see infos from Dirwolf bevor it begins to decode APRS messages. You will see that Hamlib ist enabled, the active audio device, info about your active channels and config and the info that Direwolf is ready to accept AGW (Port 8000) and KISS TCP (Port 8001). We need AGW for connect Xastir.
+
+All stations use a single frequency. On the VHF 2m band - the most commonly used band for APRS - APRS uses 144.800MHz in Europe and 144.390MHz in the USA.
