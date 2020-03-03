@@ -12,9 +12,9 @@ Equipment:
 
 Connections:
 
-- Radio SP (3.5mm) port > 3.5mm Cable to 3.5mm > Soundcard Microphone
+- Radio SP (2.5mm) port > 2.5mm to 3.5mm adapter > 3.5mm Cable to 3.5mm > Soundcard Microphone
 
-- Radio MIC (5.5mm) port > 2.5mm to 3.5mm adapter > 3.5mm Y splitter - (LEFT) >3.5mm Cable to 3.5mm > Soundcard Speaker
+- Radio MIC (3.5mm) port > 3.5mm Y splitter - (LEFT) >3.5mm Cable to 3.5mm > Soundcard Speaker
 
 I hope the above makes sence. Speaker on Radio goes to mic on PC. And the LEFT channel goes from the Soundcard to the Mic on the Radio.
 
