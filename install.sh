@@ -1,5 +1,12 @@
 #!/bin/bash
 
+#Start with Buster with desktop 
+#get from here https://www.raspberrypi.org/downloads/raspbian/
+
+sudo apt-get update -y
+sudo apt-get upgrade -y
+
+
 #Install Tools - Not needed but good to have.
 sudo apt-get install mc inxi
 
