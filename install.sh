@@ -38,3 +38,5 @@ wget http://files.js8call.com/2.1.1/js8call_2.1.1_armhf.deb
 sudo dpkg -i js8call_2.1.1_armhf.deb
 sudo apt --fix-broken install
 sudo dpkg -i js8call_2.1.1_armhf.deb
+
+wget -O /etc/direwolf.conf
