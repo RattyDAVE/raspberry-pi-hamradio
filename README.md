@@ -19,4 +19,5 @@ Connections:
 I hope the above makes sence. Speaker on Radio goes to mic on PC. And the LEFT channel goes from the Soundcard to the Mic on the Radio.
 
 install.sh - This will install all the software needed. Some software will need to be configured.
-direwolf.md - direwolf configuration instructions.
+
+direwolf_config.md - direwolf configuration instructions.
