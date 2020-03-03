@@ -39,4 +39,9 @@ sudo dpkg -i js8call_2.1.1_armhf.deb
 sudo apt --fix-broken install
 sudo dpkg -i js8call_2.1.1_armhf.deb
 
+#Get Direwolf Config
 wget -O /etc/direwolf.conf https://raw.githubusercontent.com/RattyDAVE/raspberry-pi-hamradio/master/direwolf.conf
+
+#Allow Pi to run xastir
+sudo usermod -a -G xastir-ax25 pi
+
