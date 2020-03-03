@@ -57,18 +57,25 @@ card 1: Device [USB Audio Device], device 0: USB Audio [USB Audio]
   Subdevice #0: subdevice #0
 ```
 
+Next get you Callsign password for APRS
+
+```
+callpass XXXXX
+```
+
+This will give your call pass. Keep this number safe as you will need it later.
+
 Now we edit the Direwolf config file
 
 ```
 sudo nano /etc/direwolf.conf
 ```
 
-Scroll down to the line: #ADEVICE – plughw:1,0 and delete the # from the start of both lines. 
-
-Scroll down to CHANNEL 0 PROPERTIES and replace NOCALL with your callsign, 
-
-Press Ctrl+x, close an save the file.
-
+- Scroll down to the line: #ADEVICE – plughw:1,0 and delete the # from the start of both lines. 
+- Scroll down to CHANNEL 0 PROPERTIES and replace NOCALL with your callsign, 
+- uncomment IGSERVER noam.aprs2.net (maybe use a different server if you’re not in North America)
+- uncomment IGLOGIN and change it to IGLOGIN {my-real-call} {my code}
+- Press Ctrl+x, close an save the file.
 Now you can start Direwolf.
 
 ```
@@ -94,3 +101,13 @@ Use -p command line option to enable KISS pseudo terminal.
 After start you see infos from Dirwolf it begins to decode APRS messages.
 
 All stations use a single frequency. On the VHF 2m band - the most commonly used band for APRS - APRS uses 144.800MHz in Europe and 144.390MHz in the USA.
+
+
+----
+
+
+xastir
+In the first menu that comes up, set your callsign to {my-real-call}-10 and (if desired) set your lat/long/position ambiguity
+Interface -> Interface Control, Add, Networked AGWPE, Add. Leave Pass-code blank, save and Start. Now you’re getting APRS from over the air displayed on your Xastir maps.
+Not enough for you? Interface -> Interface Control, Add, Internet Server, Add. Set Pass-code to {my-code}, save and Start. Now you’re getting APRS from the network as well.
+Want to see it on maps? I wasn’t able to get all the maps going, but things worked when I picked Maps -> Map Chooser and selected only Online/osm_tiled_mapnik.geo and worldhi.map.
