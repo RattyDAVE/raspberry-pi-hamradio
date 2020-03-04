@@ -22,7 +22,7 @@ Leave with ctrl+x and save and reboot
 Stop Direwolf if running and run with the added -p option.
 
 ```
-direwolf -t 0 -c /etc/direwolf.conf -p
+direwolf -t 0 -c ~/direwolf.conf -p
 ```
 
 When direwolf starts it will show the TNC port. Yours may be different.
