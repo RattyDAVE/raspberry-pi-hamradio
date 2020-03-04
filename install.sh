@@ -22,6 +22,7 @@ mkdir ~/build
 cd build
 
 #RTL-SDR Driver
+echo 'blacklist dvb_usb_rtl28xxu' | sudo tee --append /etc/modprobe.d/blacklist-dvb_usb_rtl28xxu.conf
 git clone git://git.osmocom.org/rtl-sdr.git
 cd rtl-sdr/
 mkdir build
