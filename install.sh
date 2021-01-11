@@ -37,10 +37,11 @@ sudo ldconfig
 #Check in CubicSDR
 
 cd ~/build
-wget http://files.js8call.com/2.1.1/js8call_2.1.1_armhf.deb
-sudo dpkg -i js8call_2.1.1_armhf.deb
+wget http://files.js8call.com/2.2.0/js8call_2.2.0_armhf.deb
+#wget http://files.js8call.com/2.1.1/js8call_2.1.1_armhf.deb
+sudo dpkg -i js8call_2.2.0_armhf.deb
 sudo apt --fix-broken install
-sudo dpkg -i js8call_2.1.1_armhf.deb
+sudo dpkg -i js8call_2.2.0_armhf.deb
 
 #Get Direwolf Config
 wget -O ~/direwolf.conf https://raw.githubusercontent.com/RattyDAVE/raspberry-pi-hamradio/master/direwolf.conf
