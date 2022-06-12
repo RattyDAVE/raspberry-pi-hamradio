@@ -50,3 +50,28 @@ wget -O ~/direwolf.conf https://raw.githubusercontent.com/RattyDAVE/raspberry-pi
 #Allow Pi to run xastir
 sudo usermod -a -G xastir-ax25 pi
 
+
+sudo apt install libglfw3-dev libglew-dev libairspyhf-dev libiio-dev libad9361-dev libairspy-dev librtlsdr-dev portaudio19-dev libzstd1 libzstd-dev
+
+
+### From https://www.radiosrs.net/installing_SDRPlusPlus.html
+
+cd ~/build
+git clone https://github.com/AlexandreRouma/SDRPlusPlus.git
+
+cd SDRPlusPlus
+mkdir build
+cd build
+cmake .. -DOPT_BUILD_SDRPLAY_SOURCE:BOOL=ON -DOPT_BUILD_NEW_PORTAUDIO_SINK:BOOL=ON -DOPT_BUILD_M17_DECODER:BOOL=ON
+make -j4
+sudo make install
+sudo ldconfig
+
+
+
+
+
+
+
+
+
