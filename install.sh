@@ -51,7 +51,7 @@ wget -O ~/direwolf.conf https://raw.githubusercontent.com/RattyDAVE/raspberry-pi
 sudo usermod -a -G xastir-ax25 pi
 
 
-sudo apt install libglfw3-dev libglew-dev libairspyhf-dev libiio-dev libad9361-dev libairspy-dev librtlsdr-dev portaudio19-dev libzstd1 libzstd-dev
+sudo apt install libglfw3-dev libglew-dev libairspyhf-dev libiio-dev libad9361-dev libairspy-dev librtlsdr-dev portaudio19-dev libzstd1 libzstd-dev libhackrf-dev 
 
 
 ### From https://www.radiosrs.net/installing_SDRPlusPlus.html
