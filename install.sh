@@ -67,6 +67,15 @@ make -j4
 sudo make install
 sudo ldconfig
 
+### https://gitlab.com/eliggett/wfview.git
+sudo apt install build-essential qt5-qmake qt5-default libqt5core5a qtbase5-dev libqt5serialport5 libqt5serialport5-dev libqt5multimedia5 libqt5multimedia5-plugins qtmultimedia5-dev libopus-dev libeigen3-dev portaudio19-dev librtaudio-dev
+cd ~/build
+git clone https://gitlab.com/eliggett/wfview.git
+mkdir build
+cd build
+qmake ../wfview/wfview.pro
+make -j4
+sudo make install
 
 
 
