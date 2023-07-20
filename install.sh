@@ -69,17 +69,19 @@ sudo make install
 sudo ldconfig
 
 ### https://gitlab.com/eliggett/wfview.git
-sudo apt install -y qtbase5-dev qtchooser qt5-qmake qtbase5-dev-tools
-sudo apt install -y libqt5core5a libqt5serialport5 libqt5serialport5-dev libqt5multimedia5 libqt5multimedia5-plugins qtmultimedia5-dev libopus-dev libeigen3-dev portaudio19-dev librtaudio-dev  libqt5gamepad5-dev
-sudo apt-get install -y libqcustomplot2.0 libqcustomplot-doc libqcustomplot-dev
+#sudo apt install -y qtbase5-dev qtchooser qt5-qmake qtbase5-dev-tools
+#sudo apt install -y libqt5core5a libqt5serialport5 libqt5serialport5-dev libqt5multimedia5 libqt5multimedia5-plugins qtmultimedia5-dev libopus-dev libeigen3-dev portaudio19-dev librtaudio-dev  libqt5gamepad5-dev
+#sudo apt-get install -y libqcustomplot2.0 libqcustomplot-doc libqcustomplot-dev
 
-cd ~/build
-git clone https://gitlab.com/eliggett/wfview.git
-mkdir build
-cd build
-qmake ../wfview/wfview.pro
-make -j4
-sudo make install
+#cd ~/build
+#git clone https://gitlab.com/eliggett/wfview.git
+#mkdir build
+#cd build
+#qmake ../wfview/wfview.pro
+#make -j4
+#sudo make install
+
+echo "END"
 
 
 
