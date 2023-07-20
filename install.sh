@@ -17,7 +17,7 @@ sudo apt-get install -y mc inxi
 sudo apt-get install -y build-essential cmake libusb-1.0-0-dev git libx11-dev
 
 #Install Ham radio stuff. 
-sudo apt-get install -y hamradio-antenna hamradio-datamodes hamradio-digitalvoice hamradio-morse hamradio-nonamateur hamradio-packetmodes hamradio-rigcontrol hamradio-satellite hamradio-sdr hamradio-tools linpac wsjtx gqrx-sdr
+sudo apt-get install -y hamradio-antenna hamradio-datamodes hamradio-digitalvoice hamradio-morse hamradio-nonamateur hamradio-packetmodes hamradio-rigcontrol hamradio-satellite hamradio-sdr hamradio-tools linpac wsjtx gqrx-sdr qjackctl
 sudo apt-get purge -y radioclk
 
 #Create build directory
@@ -51,11 +51,8 @@ wget -O ~/direwolf.conf https://raw.githubusercontent.com/RattyDAVE/raspberry-pi
 #Allow Pi to run xastir
 sudo usermod -a -G xastir-ax25 pi
 
-
-sudo apt install -y libglfw3-dev libglew-dev libairspyhf-dev libiio-dev libad9361-dev libairspy-dev librtlsdr-dev portaudio19-dev libzstd1 libzstd-dev libhackrf-dev 
-
-
 ### From https://www.radiosrs.net/installing_SDRPlusPlus.html
+sudo apt install -y libfftw3-dev libglfw3-dev libglew-dev libvolk2-dev libsoapysdr-dev libairspyhf-dev libairspy-dev libiio-dev libad9361-dev librtaudio-dev libhackrf-dev librtlsdr-dev libbladerf-dev liblimesuite-dev
 
 cd ~/build
 git clone https://github.com/AlexandreRouma/SDRPlusPlus.git
