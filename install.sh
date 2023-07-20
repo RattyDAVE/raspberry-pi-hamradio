@@ -18,6 +18,7 @@ sudo apt-get install -y build-essential cmake libusb-1.0-0-dev git libx11-dev
 
 #Install Ham radio stuff. 
 sudo apt-get install -y hamradio-antenna hamradio-datamodes hamradio-digitalvoice hamradio-morse hamradio-nonamateur hamradio-packetmodes hamradio-rigcontrol hamradio-satellite hamradio-sdr hamradio-tools linpac wsjtx gqrx-sdr
+sudo apt-get purge -y radioclk
 
 #Create build directory
 mkdir ~/build
@@ -51,7 +52,7 @@ wget -O ~/direwolf.conf https://raw.githubusercontent.com/RattyDAVE/raspberry-pi
 sudo usermod -a -G xastir-ax25 pi
 
 
-sudo apt install libglfw3-dev libglew-dev libairspyhf-dev libiio-dev libad9361-dev libairspy-dev librtlsdr-dev portaudio19-dev libzstd1 libzstd-dev libhackrf-dev 
+sudo apt install -y libglfw3-dev libglew-dev libairspyhf-dev libiio-dev libad9361-dev libairspy-dev librtlsdr-dev portaudio19-dev libzstd1 libzstd-dev libhackrf-dev 
 
 
 ### From https://www.radiosrs.net/installing_SDRPlusPlus.html
@@ -68,7 +69,10 @@ sudo make install
 sudo ldconfig
 
 ### https://gitlab.com/eliggett/wfview.git
-sudo apt install build-essential qt5-qmake qt5-default libqt5core5a qtbase5-dev libqt5serialport5 libqt5serialport5-dev libqt5multimedia5 libqt5multimedia5-plugins qtmultimedia5-dev libopus-dev libeigen3-dev portaudio19-dev librtaudio-dev
+sudo apt install -y qtbase5-dev qtchooser qt5-qmake qtbase5-dev-tools
+sudo apt install -y libqt5core5a libqt5serialport5 libqt5serialport5-dev libqt5multimedia5 libqt5multimedia5-plugins qtmultimedia5-dev libopus-dev libeigen3-dev portaudio19-dev librtaudio-dev  libqt5gamepad5-dev
+sudo apt-get install -y libqcustomplot2.0 libqcustomplot-doc libqcustomplot-dev
+
 cd ~/build
 git clone https://gitlab.com/eliggett/wfview.git
 mkdir build
