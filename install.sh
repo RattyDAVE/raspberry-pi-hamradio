@@ -82,6 +82,8 @@ wget -O - https://repo.openwebrx.de/debian/key.gpg.txt | gpg --dearmor -o /usr/s
 echo "deb [signed-by=/usr/share/keyrings/openwebrx.gpg] https://repo.openwebrx.de/debian/ bullseye main" > /etc/apt/sources.list.d/openwebrx.list
 apt-get update -y
 apt-get install -y openwebrx
+systemctl enable openwebrx
+systemctl start openwebrx
 
 
 echo "END"
