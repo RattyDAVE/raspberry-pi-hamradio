@@ -84,6 +84,7 @@ apt-get update -y
 apt-get install -y openwebrx
 systemctl enable openwebrx
 systemctl start openwebrx
+#http://127.0.0.1:8073
 
 
 echo "END"
