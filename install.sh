@@ -87,6 +87,10 @@ systemctl enable openwebrx
 systemctl start openwebrx
 #http://127.0.0.1:8073
 
+cd /tmp
+wget https://raw.githubusercontent.com/pa3gsb/Radioberry-2.x/master/SBC/rpi-4/releases/dev/pihpsdr_install.sh
+chmod +x pihpsdr_install.sh
+./pihpsdr_install.sh
 
 echo "END"
 
