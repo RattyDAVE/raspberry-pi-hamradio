@@ -100,6 +100,8 @@ chmod +x pihpsdr_install.sh
 curl -sSL https://get.docker.com | sh
 
 docker volume create openwebrx-config
+docker volume create openwebrx-settings
+
 docker run \
 	-d \
 	--name openwebrx \
@@ -108,13 +110,23 @@ docker run \
 	-p 8073:8073 \
 	--tmpfs=/tmp/openwebrx \
 	-v openwebrx-config:/etc/openwebrx \
-	jketterl/openwebrx-radioberry:latest-armv7l
+	-v openwebrx-settings:/var/lib/openwebrx \
+	jketterl/openwebrx-radioberry:latest
+
+#docker exec -it [container] python3 /opt/openwebrx/openwebrx.py admin adduser [username]
 
 docker exec -it openwebrx python3 /opt/openwebrx/openwebrx.py admin adduser admin
+docker exec -it openwebrx /bin/bash
 
+	apt-get update
+	apt-get install -y wget gpg
+	wget -O - https://repo.openwebrx.de/debian/key.gpg.txt | gpg --dearmor -o /usr/share/keyrings/openwebrx.gpg
+	echo "deb [signed-by=/usr/share/keyrings/openwebrx.gpg] https://repo.openwebrx.de/debian/ bullseye main" > /etc/apt/sources.list.d/openwebrx.list
+	apt-get update
+	apt-get install -y owrx-connector
 
-
- 
+docker stop openwebrx
+docker start openwebrx 
 
 echo "END"
 
