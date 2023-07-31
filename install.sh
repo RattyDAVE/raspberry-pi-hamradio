@@ -79,18 +79,42 @@ sudo ldconfig
 #make -j4
 #sudo make install
 
-wget -O - https://repo.openwebrx.de/debian/key.gpg.txt | gpg --dearmor -o /usr/share/keyrings/openwebrx.gpg
-echo "deb [signed-by=/usr/share/keyrings/openwebrx.gpg] https://repo.openwebrx.de/debian/ bullseye main" > /etc/apt/sources.list.d/openwebrx.list
-apt-get update -y
-apt-get install -y openwebrx
-systemctl enable openwebrx
-systemctl start openwebrx
+#wget -O - https://repo.openwebrx.de/debian/key.gpg.txt | gpg --dearmor -o /usr/share/keyrings/openwebrx.gpg
+#echo "deb [signed-by=/usr/share/keyrings/openwebrx.gpg] https://repo.openwebrx.de/debian/ bullseye main" > /etc/apt/sources.list.d/openwebrx.list
+#apt-get update -y
+#apt-get install -y openwebrx
+#systemctl enable openwebrx
+#systemctl start openwebrx
 #http://127.0.0.1:8073
+
+cd /tmp
+wget https://raw.githubusercontent.com/pa3gsb/Radioberry-2.x/master/SBC/rpi-4/releases/dev/radioberry_install.sh
+sudo chmod +x radioberry_install.sh
+./radioberry_install.sh
 
 cd /tmp
 wget https://raw.githubusercontent.com/pa3gsb/Radioberry-2.x/master/SBC/rpi-4/releases/dev/pihpsdr_install.sh
 chmod +x pihpsdr_install.sh
 ./pihpsdr_install.sh
+
+curl -sSL https://get.docker.com | sh
+
+docker volume create openwebrx-config
+docker run \
+	-d \
+	--name openwebrx \
+	--device /dev/bus/usb \
+	--device /dev/radioberry \
+	-p 8073:8073 \
+	--tmpfs=/tmp/openwebrx \
+	-v openwebrx-config:/etc/openwebrx \
+	jketterl/openwebrx-radioberry:latest-armv7l
+
+docker exec -it openwebrx python3 /opt/openwebrx/openwebrx.py admin adduser admin
+
+
+
+ 
 
 echo "END"
 
