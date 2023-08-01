@@ -111,7 +111,7 @@ docker run \
 	--tmpfs=/tmp/openwebrx \
 	-v openwebrx-config:/etc/openwebrx \
 	-v openwebrx-settings:/var/lib/openwebrx \
-	jketterl/openwebrx-radioberry:latest
+	jketterl/openwebrx-radioberry:stable
 
 #docker exec -it [container] python3 /opt/openwebrx/openwebrx.py admin adduser [username]
 
