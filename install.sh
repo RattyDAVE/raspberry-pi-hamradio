@@ -113,6 +113,20 @@ docker run \
 	-v openwebrx-settings:/var/lib/openwebrx \
 	jketterl/openwebrx-radioberry:stable
 
+
+
+docker run \
+	-d \
+	--name openwebrx \
+	--device /dev/bus/usb \
+	--device /dev/radioberry \
+	-p 8073:8073 \
+	--tmpfs=/tmp/openwebrx \
+	-v openwebrx-config:/etc/openwebrx \
+	-v openwebrx-settings:/var/lib/openwebrx \
+	slechev/openwebrxplus-nightly
+
+
 #docker exec -it [container] python3 /opt/openwebrx/openwebrx.py admin adduser [username]
 
 docker exec -it openwebrx python3 /opt/openwebrx/openwebrx.py admin adduser admin
