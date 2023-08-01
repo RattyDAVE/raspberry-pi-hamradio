@@ -123,7 +123,7 @@ docker exec -it openwebrx /bin/bash
 	wget -O - https://repo.openwebrx.de/debian/key.gpg.txt | gpg --dearmor -o /usr/share/keyrings/openwebrx.gpg
 	echo "deb [signed-by=/usr/share/keyrings/openwebrx.gpg] https://repo.openwebrx.de/debian/ bullseye main" > /etc/apt/sources.list.d/openwebrx.list
 	apt-get update
-	apt-get install -y owrx-connector
+	apt-get install -y owrx-connector rtl-sdr
 
 docker stop openwebrx
 docker start openwebrx 
