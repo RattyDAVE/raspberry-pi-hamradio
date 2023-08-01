@@ -102,6 +102,28 @@ curl -sSL https://get.docker.com | sh
 docker volume create openwebrx-config
 docker volume create openwebrx-settings
 
+#docker run \
+#	-d \
+#	--name openwebrx \
+#	--device /dev/bus/usb \
+#	--device /dev/radioberry \
+#	-p 8073:8073 \
+#	--tmpfs=/tmp/openwebrx \
+#	-v openwebrx-config:/etc/openwebrx \
+#	-v openwebrx-settings:/var/lib/openwebrx \
+#	jketterl/openwebrx-radioberry:stable
+
+#docker run \
+#	-d \
+#	--name openwebrx \
+#	--device /dev/bus/usb \
+#	--device /dev/radioberry \
+#	-p 8073:8073 \
+#	--tmpfs=/tmp/openwebrx \
+#	-v openwebrx-config:/etc/openwebrx \
+#	-v openwebrx-settings:/var/lib/openwebrx \
+#	slechev/openwebrxplus-nightly
+
 docker run \
 	-d \
 	--name openwebrx \
@@ -111,21 +133,7 @@ docker run \
 	--tmpfs=/tmp/openwebrx \
 	-v openwebrx-config:/etc/openwebrx \
 	-v openwebrx-settings:/var/lib/openwebrx \
-	jketterl/openwebrx-radioberry:stable
-
-
-
-docker run \
-	-d \
-	--name openwebrx \
-	--device /dev/bus/usb \
-	--device /dev/radioberry \
-	-p 8073:8073 \
-	--tmpfs=/tmp/openwebrx \
-	-v openwebrx-config:/etc/openwebrx \
-	-v openwebrx-settings:/var/lib/openwebrx \
-	slechev/openwebrxplus-nightly
-
+        slechev/openwebrxplus-softmbe
 
 #docker exec -it [container] python3 /opt/openwebrx/openwebrx.py admin adduser [username]
 
