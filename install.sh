@@ -79,14 +79,16 @@ sudo ldconfig
 #make -j4
 #sudo make install
 
-#wget -O - https://repo.openwebrx.de/debian/key.gpg.txt | gpg --dearmor -o /usr/share/keyrings/openwebrx.gpg
-#echo "deb [signed-by=/usr/share/keyrings/openwebrx.gpg] https://repo.openwebrx.de/debian/ bullseye main" > /etc/apt/sources.list.d/openwebrx.list
-#apt-get update -y
-#apt-get install -y openwebrx
-#systemctl enable openwebrx
-#systemctl start openwebrx
+wget -O - https://repo.openwebrx.de/debian/key.gpg.txt | gpg --dearmor -o /usr/share/keyrings/openwebrx.gpg
+echo "deb [signed-by=/usr/share/keyrings/openwebrx.gpg] https://repo.openwebrx.de/debian/ bullseye main" > /etc/apt/sources.list.d/openwebrx.list
+apt-get update -y
+apt-get install -y openwebrx
+systemctl enable openwebrx
+systemctl start openwebrx
 #http://127.0.0.1:8073
 
+
+#arm_64bit=0 at the end of /boot/config.txt
 cd /tmp
 wget https://raw.githubusercontent.com/pa3gsb/Radioberry-2.x/master/SBC/rpi-4/releases/dev/radioberry_install.sh
 sudo chmod +x radioberry_install.sh
