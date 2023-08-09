@@ -99,6 +99,12 @@ wget https://raw.githubusercontent.com/pa3gsb/Radioberry-2.x/master/SBC/rpi-4/re
 chmod +x pihpsdr_install.sh
 ./pihpsdr_install.sh
 
+#SparkSDR
+cd /tmp
+wget https://www.sparksdr.com/download/SparkSDR.2.0.33.linux-arm64.deb
+dpkg -i SparkSDR.2.0.33.linux-arm64.deb 
+
+
 curl -sSL https://get.docker.com | sh
 
 docker volume create openwebrx-config
