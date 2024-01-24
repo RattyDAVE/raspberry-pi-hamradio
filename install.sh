@@ -55,6 +55,8 @@ sudo usermod -a -G xastir-ax25 pi
 ### From https://www.radiosrs.net/installing_SDRPlusPlus.html
 sudo apt install -y libfftw3-dev libglfw3-dev libglew-dev libvolk2-dev libsoapysdr-dev libairspyhf-dev libairspy-dev libiio-dev libad9361-dev librtaudio-dev libhackrf-dev librtlsdr-dev libbladerf-dev liblimesuite-dev
 sudo apt install -y libglfw3-dev libglew-dev libairspyhf-dev libiio-dev libad9361-dev libairspy-dev librtlsdr-dev portaudio19-dev libzstd1 libzstd-dev libcodec2-dev
+sudo apt-get install libvolk2-dev librtaudio-dev libhackrf-dev
+
 
 cd ~/build
 git clone https://github.com/AlexandreRouma/SDRPlusPlus.git
