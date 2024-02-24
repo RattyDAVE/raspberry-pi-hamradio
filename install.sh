@@ -26,17 +26,34 @@ cd ~/build
 
 #RTL-SDR Driver
 #Provides 25MHz-1700M
-echo 'blacklist dvb_usb_rtl28xxu' | sudo tee --append /etc/modprobe.d/blacklist-dvb_usb_rtl28xxu.conf
-git clone git://git.osmocom.org/rtl-sdr.git
-cd rtl-sdr/
+#echo 'blacklist dvb_usb_rtl28xxu' | sudo tee --append /etc/modprobe.d/blacklist-dvb_usb_rtl28xxu.conf
+#git clone git://git.osmocom.org/rtl-sdr.git
+#cd rtl-sdr/
+#mkdir build
+#cd build
+#cmake ../
+#make -j4
+#sudo make install
+#sudo cmake ../ -DINSTALL_UDEV_RULES=ON
+#sudo ldconfig
+#Check in CubicSDR
+
+#RTL-SDR Driver v4
+cd ~/build
+git clone https://github.com/rtlsdrblog/rtl-sdr-blog
+cd rtl-sdr-blog/
 mkdir build
 cd build
-cmake ../
+cmake ../ -DINSTALL_UDEV_RULES=ON
 make -j4
 sudo make install
-sudo cmake ../ -DINSTALL_UDEV_RULES=ON
+sudo cp ../rtl-sdr.rules /etc/udev/rules.d/
 sudo ldconfig
-#Check in CubicSDR
+echo 'blacklist dvb_usb_rtl28xxu' | sudo tee --append /etc/modprobe.d/blacklist-dvb_usb_rtl28xxu.conf
+
+
+
+
 
 cd ~/build
 wget http://files.js8call.com/2.2.0/js8call_2.2.0_armhf.deb
@@ -64,10 +81,31 @@ git clone https://github.com/AlexandreRouma/SDRPlusPlus.git
 cd SDRPlusPlus
 mkdir build
 cd build
-cmake .. -DOPT_BUILD_SDRPLAY_SOURCE:BOOL=ON -DOPT_BUILD_NEW_PORTAUDIO_SINK:BOOL=ON -DOPT_BUILD_M17_DECODER:BOOL=ON
+#cmake .. -DOPT_BUILD_SDRPLAY_SOURCE:BOOL=ON -DOPT_BUILD_NEW_PORTAUDIO_SINK:BOOL=ON -DOPT_BUILD_M17_DECODER:BOOL=ON
+#make -j4
+#sudo make install
+#sudo ldconfig
+
+cmake .. \
+    -DOPT_BUILD_AIRSPY_SOURCE:BOOL=OFF \
+    -DOPT_BUILD_AIRSPYHF_SOURCE:BOOL=OFF \
+    -DOPT_BUILD_HACKRF_SOURCE:BOOL=OFF \
+    -DOPT_BUILD_PLUTOSDR_SOURCE:BOOL=OFF \
+    -DOPT_BUILD_RTL_SDR_SOURCE:BOOL=ON \
+    -DOPT_BUILD_SDRPLAY_SOURCE:BOOL=OFF \
+    -DOPT_BUILD_SOAPY_SOURCE:BOOL=OFF \
+    -DOPT_BUILD_SPECTRAN_SOURCE:BOOL=OFF \
+    -DOPT_BUILD_ATV_DECODER:BOOL=ON \
+    -DOPT_BUILD_FALCON9_DECODER:BOOL=OFF \
+    -DOPT_BUILD_M17_DECODER:BOOL=ON \
+    -DOPT_BUILD_PAGER_DECODER:BOOL=ON \
+    -DOPT_BUILD_WEATHER_SAT_DECODER:BOOL=OFF
+
 make -j4
 sudo make install
 sudo ldconfig
+
+
 
 ### https://gitlab.com/eliggett/wfview.git
 #sudo apt install -y qtbase5-dev qtchooser qt5-qmake qtbase5-dev-tools
