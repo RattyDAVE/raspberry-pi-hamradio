@@ -70,15 +70,16 @@ wget -O ~/direwolf.conf https://raw.githubusercontent.com/RattyDAVE/raspberry-pi
 sudo usermod -a -G xastir-ax25 pi
 
 ### From https://www.radiosrs.net/installing_SDRPlusPlus.html
-sudo apt install -y libfftw3-dev libglfw3-dev libglew-dev libvolk2-dev libsoapysdr-dev libairspyhf-dev libairspy-dev libiio-dev libad9361-dev librtaudio-dev libhackrf-dev librtlsdr-dev libbladerf-dev liblimesuite-dev
-sudo apt install -y libglfw3-dev libglew-dev libairspyhf-dev libiio-dev libad9361-dev libairspy-dev librtlsdr-dev portaudio19-dev libzstd1 libzstd-dev libcodec2-dev
-sudo apt-get install libvolk2-dev librtaudio-dev libhackrf-dev libfftw3-dev libsoapysdr-dev
+#sudo apt install -y libfftw3-dev libglfw3-dev libglew-dev libvolk2-dev libsoapysdr-dev libairspyhf-dev libairspy-dev libiio-dev libad9361-dev librtaudio-dev libhackrf-dev librtlsdr-dev libbladerf-dev liblimesuite-dev
+#sudo apt install -y libglfw3-dev libglew-dev libairspyhf-dev libiio-dev libad9361-dev libairspy-dev librtlsdr-dev portaudio19-dev libzstd1 libzstd-dev libcodec2-dev
+#sudo apt-get install libvolk2-dev librtaudio-dev libhackrf-dev libfftw3-dev libsoapysdr-dev
 
 
 cd ~/build
 git clone https://github.com/AlexandreRouma/SDRPlusPlus.git
 
 cd SDRPlusPlus
+git pull
 mkdir build
 cd build
 #cmake .. -DOPT_BUILD_SDRPLAY_SOURCE:BOOL=ON -DOPT_BUILD_NEW_PORTAUDIO_SINK:BOOL=ON -DOPT_BUILD_M17_DECODER:BOOL=ON
@@ -99,7 +100,8 @@ cmake .. \
     -DOPT_BUILD_FALCON9_DECODER:BOOL=OFF \
     -DOPT_BUILD_M17_DECODER:BOOL=ON \
     -DOPT_BUILD_PAGER_DECODER:BOOL=ON \
-    -DOPT_BUILD_WEATHER_SAT_DECODER:BOOL=OFF
+    -DOPT_BUILD_WEATHER_SAT_DECODER:BOOL=OFF \
+    -DOPT_BUILD_NEW_PORTAUDIO_SINK:BOOL=ON
 
 make -j4
 sudo make install
