@@ -5,6 +5,29 @@
 
 #Also works with arm64 on Raspberry Pi 4. (NOT JS8CALL)
 
+#For NVME
+cat <<EOF >> /boot/firmware/config.txt
+dtparam=nvme
+dtparam=pciex1_gen=3
+EOF
+
+# Change boot order
+# sudo rpi-eeprom-config --edit
+
+cat <<EOF > /tmp/boot.conf
+[all]
+BOOT_UART=1
+POWER_OFF_ON_HALT=1
+#NVME
+#BOOT_ORDER=0xf416
+#SD Card only
+BOOT_ORDER=0x1
+PCIE_PROBE=1
+EOF
+
+sudo rpi-eeprom-config -c /tmp/boot.conf
+
+
 
 sudo apt-get update -y
 sudo apt-get upgrade -y
@@ -75,18 +98,15 @@ sudo usermod -a -G xastir-ax25 pi
 #sudo apt-get install libvolk2-dev librtaudio-dev libhackrf-dev libfftw3-dev libsoapysdr-dev
 
 
+
+
+sudo apt-get install libglfw3-dev libfftw3-dev libvolk2-dev libzstd-dev librtaudio-dev portaudio19-dev libcodec2-dev
 cd ~/build
 git clone https://github.com/AlexandreRouma/SDRPlusPlus.git
-
 cd SDRPlusPlus
 git pull
 mkdir build
 cd build
-#cmake .. -DOPT_BUILD_SDRPLAY_SOURCE:BOOL=ON -DOPT_BUILD_NEW_PORTAUDIO_SINK:BOOL=ON -DOPT_BUILD_M17_DECODER:BOOL=ON
-#make -j4
-#sudo make install
-#sudo ldconfig
-
 cmake .. \
     -DOPT_BUILD_AIRSPY_SOURCE:BOOL=OFF \
     -DOPT_BUILD_AIRSPYHF_SOURCE:BOOL=OFF \
@@ -102,10 +122,26 @@ cmake .. \
     -DOPT_BUILD_PAGER_DECODER:BOOL=ON \
     -DOPT_BUILD_WEATHER_SAT_DECODER:BOOL=OFF \
     -DOPT_BUILD_NEW_PORTAUDIO_SINK:BOOL=ON
-
 make -j4
 sudo make install
 sudo ldconfig
+cat <<EOF | sudo tee /etc/systemd/system/sdrpp.service
+[Unit]
+Description=SDR++ Server
+After=network.target
+[Service]
+User=pi
+Group=pi
+Environment="LOG_NO_TIME=true"
+ExecStart=/usr/bin/sdrpp --server
+[Install]
+WantedBy=multi-user.target
+EOF
+sudo systemctl daemon-reload
+sudo systemctl enable sdrpp
+sudo systemctl start sdrpp
+
+
 
 
 
