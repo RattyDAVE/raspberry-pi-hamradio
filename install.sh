@@ -32,6 +32,12 @@ sudo rpi-eeprom-config -c /tmp/boot.conf
 sudo apt-get update -y
 sudo apt-get upgrade -y
 
+#Needed for the module/*/build directory
+sudo apt install --reinstall raspi-firmware
+reboot
+sudo apt install linux-headers-rpi-v8
+
+
 
 #Install Tools - Not needed but good to have.
 sudo apt-get install -y mc inxi
